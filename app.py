@@ -40,5 +40,16 @@ def json_resp(id):
 def not_found(error):
     return render_template('404.html'),404
 
+@app.route('/item/<int:id>/')
+def item(id):
+    if (id==520):
+        return redirect(url_for('dailyLife'))
+    return ('item {}'.format(id))
+
+@app.route('/secret/')
+def secret():
+    abort(404)
+    print('不会执行到这里！！！')
+
 if __name__ == '__main__':
     app.run(debug=True)
